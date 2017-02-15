@@ -1,4 +1,4 @@
-# Macular-Hole-Detection
+# Macular Hole Detection
 We use a convolutional neural network for the detection and localization of macular holes.
 
 ##Architecture
@@ -52,6 +52,7 @@ Binary crossentropy
 ### OPTIMIZER
 
 Nestorov Adam -- RMSProp with Nesterov Momentum
+
 
 BATCH SIZE = 16
 
