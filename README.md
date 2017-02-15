@@ -21,7 +21,7 @@ ZCA Whitening
 
 Geometric shifts
 
-### CONVNET
+### Convolutional Network
 
 3x3 32 - ReLU - 2x2 Max Pool
 
@@ -33,7 +33,7 @@ Geometric shifts
 
 Dropout of 0.5
 
-### DENSE LAYERS
+### Dense Layers
 
 256 - ReLU - L2 reg 
 
@@ -45,14 +45,15 @@ Dropout of 0.5
 
 1 - Sigmoid
 
-### LOSS FUNCTION
+### Loss Functions
 
 Binary crossentropy
 
-### OPTIMIZER
+### Optimizer
 
 Nestorov Adam -- RMSProp with Nesterov Momentum
 
+### Information About Data
 
 BATCH SIZE = 16
 
