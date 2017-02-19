@@ -11,7 +11,7 @@ data = pickle.load(open('../data/images.p','rb'))
 X_train = data['x_train']
 Y_train = data['y_train']
 X_val   = data['x_val']
-Y_val   = data['y_va;']
+Y_val   = data['y_val']
 X_test  = data['x_test']
 Y_test  = data['y_test']
 
