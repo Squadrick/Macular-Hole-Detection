@@ -10,8 +10,10 @@ data = pickle.load(open('../data/images.p','rb'))
 
 X_train = data['x_train']
 Y_train = data['y_train']
-X_test = data['x_test']
-Y_test = data['y_test']
+X_val   = data['x_val']
+Y_val   = data['y_va;']
+X_test  = data['x_test']
+Y_test  = data['y_test']
 
 model = Sequential()
 
@@ -51,10 +53,24 @@ datagen = ImageDataGenerator(
 
 model.compile(loss='binary_crossentropy',optimizer=opti,metrics=['accuracy'])
 
-model.fit_generator(datagen.flow(X_train, Y_train, batch_size=8),
-        samples_per_epoch=250, nb_epoch=10, verbose=1, validation_data=(X_test, Y_test))
+model.fit_generator(datagen.flow(X_train, 
+                                 Y_train, 
+                                 batch_size=16, 
+                                 shuffle=True),
+                    samples_per_epoch=1000, 
+                    nb_epoch=2, 
+                    verbose=1, 
+                    validation_data=datagen.flow(X_val,
+                                                 Y_val, 
+                                                 batch_size=16,
+                                                 shuffle=True),
+                    nb_val_samples=len(X_val))
 
-score = model.evaluate(X_test, Y_test, batch_size=16)
+#score = model.evaluate(X_test, Y_test, batch_size=16)
+score = model.evaluate_generator(datagen.flow(X_test, 
+                                              Y_test, 
+                                              batch_size=8), 
+                                              val_samples=len(X_test))
 
 fileName = 'weights/' + str(score[1])[0:5] + '.h5'
 model.save_weights(fileName)
