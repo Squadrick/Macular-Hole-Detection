@@ -3,6 +3,7 @@ from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.optimizers import Nadam
 from keras.preprocessing.image import ImageDataGenerator
+import keras
 import cPickle as pickle
 
 data = pickle.load(open('../data/images.p','rb'))
@@ -50,9 +51,13 @@ datagen = ImageDataGenerator(
 
 model.compile(loss='binary_crossentropy',optimizer=opti,metrics=['accuracy'])
 
-model.fit_generator(datagen.flow(X_train, Y_train, batch_size=16),
-        samples_per_epoch=5000, nb_epoch=25)
+model.fit_generator(datagen.flow(X_train, Y_train, batch_size=8),
+        samples_per_epoch=250, nb_epoch=10, verbose=1, validation_data=(X_test, Y_test))
 
 score = model.evaluate(X_test, Y_test, batch_size=16)
 
+fileName = 'weights/' + str(score[1])[0:5] + '.h5'
+model.save_weights(fileName)
+
 print(score)
+
