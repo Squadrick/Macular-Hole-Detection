@@ -3,7 +3,7 @@ import numpy as np
 import glob
 import cPickle as pickle
 
-size = (256, 192)
+size = (512, 384)
 pos_filepath = glob.glob("../data/positive/*.jpg")
 neg_filepath = glob.glob("../data/negative/*.jpg")
 
