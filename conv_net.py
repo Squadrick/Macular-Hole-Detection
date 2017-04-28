@@ -7,7 +7,7 @@ import keras
 import cPickle as pickle
 from datetime import datetime
 
-data = pickle.load(open('../data/images.p','rb'))
+data = pickle.load(open('../data/images.pkl','rb'))
 
 X_train = data['x_train']
 Y_train = data['y_train']
