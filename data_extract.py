@@ -5,8 +5,8 @@ import cPickle as pickle
 
 size = (512, 384)
 
-pos_filepath = glob.glob("../data/macula_data/positive/*.jpg")
-neg_filepath = glob.glob("../data/macula_data/negative/*.jpg")
+pos_filepath = glob.glob("./macula_data/positive/*.jpg")
+neg_filepath = glob.glob("./macula_data/negative/*.jpg")
 
 x_pos = np.array([np.array(cv2.resize(cv2.imread(fname), size)) for fname in pos_filepath])
 x_neg = np.array([np.array(cv2.resize(cv2.imread(fname), size)) for fname in neg_filepath])
@@ -42,4 +42,4 @@ data = {'x_train': x_train,
         'x_test' : x_test,
         'y_test' : y_test}
 
-pickle.dump(data, open('../data/images.pkl', 'wb'), protocol=2)
+pickle.dump(data, open('./macula_data/images.pkl', 'wb'), protocol=2)
