@@ -1,0 +1,23 @@
+macula_data/negative has a lot of shitty images, filter out the good ones, at least 85
+
+Make a cropping mechanism for easily cropping out the maculas (OpenCV)
+	http://www.pyimagesearch.com/2015/03/09/capturing-mouse-click-events-with-python-and-opencv/
+	https://github.com/sonots/imageclipper
+
+Resize all excrated macula into a uniform (128*128)
+
+Data augmentation(*) -- rotation, brightness, invert, warp
+
+Do some basic preprocessing
+
+Split into train, val, test
+
+Feature extracts -- HOG
+
+Build the classifiers using sklearn -- 
+	SVM
+	Naive Bayes
+	Neural network
+	KNN
+	K-Means
+	Decision Tree
